@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Orçamentos - ABNT</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sistema de Orçamentos</h1>
+      
+      <form id="budgetForm">
+        <div class="form-section">
+          <h2>Dados da Empresa</h2>
+          <input type="text" id="companyName" placeholder="Nome da Empresa" required>
+          <input type="text" id="cnpj" placeholder="CNPJ" required>
+          <input type="text" id="address" placeholder="Endereço" required>
+          <input type="tel" id="phone" placeholder="Telefone" required>
+        </div>
+
+        <div class="form-section">
+          <h2>Dados do Cliente</h2>
+          <input type="text" id="clientName" placeholder="Nome do Cliente" required>
+          <input type="text" id="clientDocument" placeholder="CPF/CNPJ" required>
+          <input type="text" id="clientAddress" placeholder="Endereço do Cliente" required>
+          <input type="tel" id="clientPhone" placeholder="Telefone do Cliente" required>
+        </div>
+
+        <div class="form-section">
+          <h2>Itens do Orçamento</h2>
+          <div id="itemsList">
+            <div class="item-row">
+              <select class="item-type" required>
+                <option value="">Selecione o tipo</option>
+                <option value="produto">Produto</option>
+                <option value="servico">Serviço</option>
+              </select>
+              <input type="text" class="item-description" placeholder="Descrição" required>
+              <input type="number" class="item-quantity" placeholder="Quantidade" min="1" required>
+              <input type="number" class="item-price" placeholder="Preço Unitário" step="0.01" min="0" required>
+              <button type="button" class="remove-item">Remover</button>
+            </div>
+          </div>
+          <button type="button" id="addItem">Adicionar Item</button>
+        </div>
+
+        <div class="form-section">
+          <h2>Condições</h2>
+          <textarea id="conditions" rows="4" placeholder="Condições de pagamento e observações"></textarea>
+          <input type="number" id="validity" placeholder="Validade da proposta (dias)" required>
+        </div>
+
+        <div class="buttons">
+          <button type="submit">Gerar Orçamento</button>
+          <button type="button" id="exportPdf">Exportar PDF</button>
+        </div>
+      </form>
+
+      <div id="preview" class="preview-section"></div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
